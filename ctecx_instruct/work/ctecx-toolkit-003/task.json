@@ -1,0 +1,35 @@
+{
+  "format_version": "ctecx_instruct@1",
+  "task_id": "ctecx-toolkit-003",
+  "owner": "wan mohd azizi bin wan hosen, ctaxnagomi, est 2024",
+  "created": "2026-09-06",
+  "status": "closed",
+  "params": {},
+  "tags": [],
+  "parts": [
+    "INSTRUCT.md",
+    "task.sh",
+    "task.sql",
+    "task.json",
+    "task.assembly"
+  ],
+  "manifest": [
+    {
+      "path": "INSTRUCT.md",
+      "sha256": "15ebe3c85ae675f9a574c6cd290278dc6f7681ca4b9dfdd0f33e5b177bd8c83f"
+    },
+    {
+      "path": "task.sh",
+      "sha256": "0aea91347cd7666cd840c564d1d16024b6750740d7b65be2c8fb7518f3542010"
+    },
+    {
+      "path": "task.sql",
+      "sha256": "64bc8c93034d7b54b284bcc5a25dfe8ad469ad697d10b16dbc081c5af7713e9a"
+    },
+    {
+      "path": "task.assembly",
+      "sha256": "39f8de4b630998f7d586b076a55cb85516fdf88ea874215a6c84af30999247c9"
+    }
+  ],
+  "_note": "task.json is excluded from its own manifest (a file cannot hash itself)."
+}

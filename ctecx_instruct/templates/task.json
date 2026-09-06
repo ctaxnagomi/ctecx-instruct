@@ -1,0 +1,29 @@
+{
+  "format_version": "ctecx_instruct@1",
+  "task_id": "ctecx-<topic>-<seq>",
+  "owner": "wan mohd azizi bin wan hosen, ctaxnagomi, est 2024",
+  "created": "YYYY-MM-DD",
+  "status": "open",
+  "params": {},
+  "tags": [],
+  "parts": ["INSTRUCT.md", "task.sh", "task.sql", "task.json", "task.assembly"],
+  "manifest": [
+    {
+      "path": "INSTRUCT.md",
+      "sha256": "<fill-on-pack>"
+    },
+    {
+      "path": "task.sh",
+      "sha256": "<fill-on-pack>"
+    },
+    {
+      "path": "task.sql",
+      "sha256": "<fill-on-pack>"
+    },
+    {
+      "path": "task.assembly",
+      "sha256": "<fill-on-pack>"
+    }
+  ],
+  "_note": "task.json is excluded from its own manifest (a file cannot hash itself)."
+}

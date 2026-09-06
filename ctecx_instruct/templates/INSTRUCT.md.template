@@ -1,0 +1,49 @@
+<!-- owner: wan mohd azizi bin wan hosen, ctaxnagomi, est 2024 -->
+
+# CTECX Task Log — INSTRUCT
+
+- **task_id**: `ctecx-<topic>-<seq>`
+- **owner**: wan mohd azizi bin wan hosen, ctaxnagomi, est 2024
+- **created**: `YYYY-MM-DD`
+- **status**: `open | in_progress | blocked | closed`
+- **format_version**: `ctecx_instruct@1`
+
+## Objective
+
+> One or two sentences: what this task must deliver.
+
+## Important Details
+
+- Constraints, URLs, paths, secrets-handling rules, tools.
+- Every constraint the executor must not violate.
+
+## Work State
+
+### Completed
+- What is already done (facts, verified results).
+
+### Active
+- What is currently in progress.
+
+### Blocked
+- What is stuck and why (if anything).
+
+## Execution Steps
+
+1. Step one — with the exact command / file to touch.
+2. Step two.
+3. Step three.
+
+## Deliverables
+
+- File paths that must exist when the task closes.
+
+## Verification
+
+- How to prove the task is complete (commands, checks, URLs to confirm).
+
+## Owner
+
+```
+wan mohd azizi bin wan hosen, ctaxnagomi, est 2024
+```

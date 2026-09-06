@@ -1,0 +1,44 @@
+; task.assembly — ctecx_instruct plan part
+; owner: wan mohd azizi bin wan hosen, ctaxnagomi, est 2024
+; task_id: ctecx-<topic>-<seq>
+; The build written as a program listing. Mnemonics:
+;   MOV  assign/place           CALL invoke (command, function, tool)
+;   PUSH record/append          CMP  compare/assert
+;   JZ   branch on condition    JMP  unconditional next
+;   HLT  halt stage             RET  finish / return state
+;
+; :SEGMENTS   labelled stages that mirror INSTRUCT.md steps
+; :REGISTERS  current task state, tracked like machine registers
+
+; ---------------- SEGMENT .stage.init ----------------
+    MOV    status,        "open"
+    PUSH   task_audit,    { action: "opened" }
+    CALL   task.sql       ; ensure agent_memory + task_meta exist
+; verify: task_meta row exists
+    CMP    EXISTS(task_meta), 1
+    JZ     .fail_missing_task_meta
+
+; ---------------- SEGMENT .stage.exec ----------------
+    ; one block per Execution Step in INSTRUCT.md
+    CALL   <step-command>
+    PUSH   task_audit,    { action: "step_done", step: N }
+    CMP    <exit-code>,   0
+    JZ     .fail_step_N
+
+; ---------------- SEGMENT .stage.verify ----------------
+    CALL   task.sh test
+    CMP    <hash(manifest)>, task.json.manifest
+    JZ     .fail_manifest
+
+; ---------------- SEGMENT .stage.close ----------------
+    MOV    status,        "closed"
+    PUSH   task_audit,    { action: "closed" }
+    RET    { task_id, status: "closed" }
+
+; ---------------- HANDLERS ----------------
+.fail_missing_task_meta:
+    HLT   "agent_memory/task_meta missing"
+.fail_step_N:
+    HLT   "step N failed"
+.fail_manifest:
+    HLT   "manifest hash mismatch"
